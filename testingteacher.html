@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="Teacher.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <div class="profile-picture"></div>
+                <div class="teacher-name">Teacher</div>
+            </div>
+            <nav class="menu">
+                <button class="menu-item" onclick="showMainDisplay('announcements', this)">Homework Announcements</button>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="logout" onclick="location.href='Main Private.html';">Main Page</button>
+                <button class="logout" onclick="location.href='Main Page.html';">Logout</button>
+            </div>
+        </div>
+
+        <!-- Main Display -->
+        <div class="main-display">
+            <!-- Homework Announcements Section -->
+            <div id="announcements" class="hidden">
+                <fieldset>
+                    <legend>Post Homework Announcement</legend>
+                    <form class="announcement-form">
+                        <div>
+                            <label for="homework-title">Homework Title:</label>
+                            <input type="text" id="homework-title" placeholder="Enter homework title" required> 
+                        </div>
+                        <div>
+                            <label for="homework-deadline">Deadline:</label>
+                            <input type="date" id="homework-deadline" required>
+                        </div>
+                        <div>
+                            <label for="homework-elaboration">Elaboration:</label>
+                            <textarea id="homework-elaboration" rows="5" placeholder="Provide detailed information about the homework" required></textarea>
+                        </div>
+                        <button type="button" onclick="postAnnouncement()">Post Announcement</button>
+                    </form>
+                </fieldset>
+
+                <h3>Posted Announcements</h3>
+                <table id="announcements-table" class="announcements-table">
+                    <thead>
+                        <tr>
+                            <th>Number</th>
+                            <th>Title</th>
+                            <th>Posted Date</th>
+                            <th>Deadline</th>
+                            <th>Elaboration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="5">No announcements yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="Teacher.js" defer></script>
+</body>
+</html>
